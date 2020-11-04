@@ -8,7 +8,7 @@ public class MainForm {
     private JButton infoButton;
     private JPanel mainJPanel;
     private JTextField weightTf;
-    private JTextField hightTf;
+    private JTextField heightTf;
     private JButton calcButton;
     private JLabel bmiNumber;
     private JLabel bmiTitel;
@@ -50,25 +50,69 @@ public class MainForm {
                     JOptionPane.showMessageDialog(null, "Sie können nur eine geschlecht auswellen !!!");
                 }
 
-                if(mänclichRadioButton.isSelected() == false && weiblichRadioButton.isSelected() == false){
-                    JOptionPane.showMessageDialog(null,"Sie haben keine geschlecht ausgewelt!");
+                if (mänclichRadioButton.isSelected() == false && weiblichRadioButton.isSelected() == false) {
+                    JOptionPane.showMessageDialog(null, "Sie haben keine geschlecht ausgewelt!");
                 }
 
-                if(ageTf.getText().isEmpty() && weightTf.getText().isEmpty() && hightTf.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(null,"Sie haben keine Daten gegeben!");
+
+                if (ageTf.getText().isEmpty() && weightTf.getText().isEmpty() && heightTf.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Sie haben keine Daten gegeben!");
+                }
+
+                if (ageTf.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Sie haben keine Alter gegeben!");
+                }
+                if (weightTf.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Sie haben keine Gewicht gegeben!");
+                }
+                if (heightTf.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Sie haben keine Größe gegeben!");
                 }
 
                 if (mänclichRadioButton.isSelected()) {
                     age = Integer.parseInt(ageTf.getText());
                     weight = Integer.parseInt(weightTf.getText());
-                    height = Integer.parseInt(hightTf.getText());
+                    height = Integer.parseInt(heightTf.getText());
 
-                    bmi= weight * (height * 2);
+                    bmi = weight * (height * 2);
 
                     bmiNumber.setText(String.valueOf(bmi));
+
                 }
             }
         });
+    }
+
+    public void bmiMenTitel(int age, int bmiN, String bmiStatus) {
+        if (age >= 16 && age <= 24) {
+            if (bmiN <= 18) {
+                bmiStatus = "Untergewicht";
+            }
+            if (bmiN == 19 && bmiN <= 24) {
+                bmiStatus = "Normalgewicht";
+            }
+            if (bmiN == 25 && bmiN <= 28) {
+                bmiStatus = "leichtes Übergewicht";
+            }
+            if (bmiN >= 29) {
+                bmiStatus = "Übergewicht";
+            }
+
+            if (age >= 25 && age <= 34) {
+                if (bmiN <= 19) {
+                    bmiStatus = "Untergewicht";
+                }
+                if (bmiN == 20 && bmiN <= 25) {
+                    bmiStatus = "Normalgewicht";
+                }
+                if (bmiN == 26 && bmiN <= 29) {
+                    bmiStatus = "leichtes Übergewicht";
+                }
+                if (bmiN >= 30) {
+                    bmiStatus = "Übergewicht";
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {

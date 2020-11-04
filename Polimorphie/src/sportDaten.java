@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 
 public class sportDaten {
     protected String sportlerName;
