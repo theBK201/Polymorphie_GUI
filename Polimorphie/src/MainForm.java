@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 
 public class MainForm {
@@ -45,6 +46,7 @@ public class MainForm {
                 double weight;
                 int age;
                 double bmi;
+                DecimalFormat df2 = new DecimalFormat("#.##");
 
                 if (mänclichRadioButton.isSelected() && weiblichRadioButton.isSelected()) {
                     JOptionPane.showMessageDialog(null, "Sie können nur eine geschlecht auswellen !!!");
@@ -76,7 +78,7 @@ public class MainForm {
 
                     bmi = weight / ((height/100) *  (height/100));
 
-                    bmiNumber.setText(String.valueOf(bmi));
+                    bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
                 }
             }
@@ -84,6 +86,7 @@ public class MainForm {
     }
 
     public void bmiMenTitel(int age, int bmiN, String bmiStatus) {
+
         if (age >= 16 && age <= 24) {
             if (bmiN <= 18) {
                 bmiStatus = "Untergewicht";
