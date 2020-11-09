@@ -41,8 +41,8 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                int height;
-                int weight;
+                double height;
+                double weight;
                 int age;
                 double bmi;
 
@@ -71,10 +71,10 @@ public class MainForm {
 
                 if (mänclichRadioButton.isSelected()) {
                     age = Integer.parseInt(ageTf.getText());
-                    weight = Integer.parseInt(weightTf.getText());
-                    height = Integer.parseInt(heightTf.getText());
+                    weight = Double.parseDouble(weightTf.getText());
+                    height = Double.parseDouble(heightTf.getText());
 
-                    bmi = weight * (height * 2);
+                    bmi = weight / ((height/100) *  (height/100));
 
                     bmiNumber.setText(String.valueOf(bmi));
 
