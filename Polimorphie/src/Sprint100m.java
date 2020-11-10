@@ -1,16 +1,16 @@
 
-public class Sprint100m extends sportDaten{
-    private int sek;
-    private int hundertstel;
+public class Sprint100m extends sportData {
+    private int sec;
+    private int hundredth;
 
     public Sprint100m(String n, int s, int h){
         super(n);
-        sek = s;
-        hundertstel = h;
+        sec = s;
+        hundredth = h;
     }
 
     @Override
     public String display(){
-        return ("Sportler: "+sportlerName+", hat das 100 Metar Sprint mit Zeit "+sek+"."+hundertstel+" abgeschlossen!\n");
+        return ("Sportler: "+athleteName+", hat das 100 Metar Sprint mit Zeit "+sec+"."+hundredth+" abgeschlossen!\n");
     }
 }

@@ -1,10 +1,10 @@
 
-public class sportDaten {
-    protected String sportlerName;
+public class sportData {
+    protected String athleteName;
     protected String line = "----------------";
 
-    public sportDaten(String n){
-        sportlerName = n;
+    public sportData(String n){
+        athleteName = n;
     }
 
 

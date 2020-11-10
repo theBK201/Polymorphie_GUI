@@ -12,21 +12,22 @@ public class MainForm {
     private JTextField heightTf;
     private JButton calcButton;
     private JLabel bmiNumber;
-    private JLabel bmiTitel;
-    private JRadioButton mänclichRadioButton;
-    private JRadioButton weiblichRadioButton;
+    private JLabel bmiTitle;
+    private JRadioButton maleRadioButton;
+    private JRadioButton femaleRadioButton;
     private JTextField ageTf;
     private JTextPane infoTextPane;
+    private JLabel resultTitleLabel;
 
     public MainForm() {
         infoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                LinkedList<sportDaten> sportDt = new LinkedList<>();
+                LinkedList<sportData> sportDt = new LinkedList<>();
 
                 sportDt.add(new Marathon("Markus", 5, 40, 12));
-                sportDt.add(new SpeerWurf("Daniel", 30.23));
+                sportDt.add(new SpearThrow("Daniel", 30.23));
                 sportDt.add(new Sprint100m("Max", 9, 45));
                 String result = "";
                 for (int i = 0; i < sportDt.size(); i++) {
@@ -48,30 +49,36 @@ public class MainForm {
                 double bmi;
                 DecimalFormat df2 = new DecimalFormat("#.##");
 
-                if (mänclichRadioButton.isSelected() && weiblichRadioButton.isSelected()) {
+                if (maleRadioButton.isSelected() && femaleRadioButton.isSelected()) {
+                    //Error that the user can select only one gender
                     JOptionPane.showMessageDialog(null, "Sie können nur eine geschlecht auswellen !!!");
                 }
 
-                if (mänclichRadioButton.isSelected() == false && weiblichRadioButton.isSelected() == false) {
+                if (maleRadioButton.isSelected() == false && femaleRadioButton.isSelected() == false) {
+                    //Error that the user hasn't selected any gender
                     JOptionPane.showMessageDialog(null, "Sie haben keine geschlecht ausgewelt!");
                 }
 
 
                 if (ageTf.getText().isEmpty() && weightTf.getText().isEmpty() && heightTf.getText().isEmpty()) {
+                    //Error that the user hasn't given any data
                     JOptionPane.showMessageDialog(null, "Sie haben keine Daten gegeben!");
                 }
 
                 if (ageTf.getText().isEmpty()) {
+                    //Error that the user hasn't given his age
                     JOptionPane.showMessageDialog(null, "Sie haben keine Alter gegeben!");
                 }
                 if (weightTf.getText().isEmpty()) {
+                    //Error that the user hasn't given his weight
                     JOptionPane.showMessageDialog(null, "Sie haben keine Gewicht gegeben!");
                 }
                 if (heightTf.getText().isEmpty()) {
+                    //Error that the user hasn't given his height
                     JOptionPane.showMessageDialog(null, "Sie haben keine Größe gegeben!");
                 }
 
-                if (mänclichRadioButton.isSelected()) {
+                if (maleRadioButton.isSelected()) {
                     age = Integer.parseInt(ageTf.getText());
                     weight = Double.parseDouble(weightTf.getText());
                     height = Double.parseDouble(heightTf.getText());
@@ -80,12 +87,14 @@ public class MainForm {
 
                     bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
+                    bmiMenTitel(age,bmi,"");
+
                 }
             }
         });
     }
 
-    public void bmiMenTitel(int age, int bmiN, String bmiStatus) {
+    public void bmiMenTitel(int age, double bmiN, String bmiStatus) {
 
         if (age >= 16) {
             if (bmiN <= 18) {
@@ -189,7 +198,7 @@ public class MainForm {
         }
     }
 
-    public void bmiWomanTitel(int age, int bmiN, String bmiStatus) {
+    public void bmiWomanTitel(int age, double bmiN, String bmiStatus) {
         if (age >= 16 && age <= 24) {
             if (bmiN <= 18) {
                 bmiStatus = "Untergewicht";
@@ -219,7 +228,6 @@ public class MainForm {
                 }
             }
         }
-
     }
 
     public static void main(String[] args) {

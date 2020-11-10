@@ -97,7 +97,7 @@
               </grid>
             </constraints>
           </hspacer>
-          <component id="4d05f" class="javax.swing.JLabel">
+          <component id="4d05f" class="javax.swing.JLabel" binding="resultTitleLabel">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -144,7 +144,7 @@
               </grid>
             </constraints>
           </hspacer>
-          <component id="2c8c8" class="javax.swing.JLabel" binding="bmiTitel">
+          <component id="2c8c8" class="javax.swing.JLabel" binding="bmiTitle">
             <constraints>
               <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -171,7 +171,7 @@
           <text value="Calculate"/>
         </properties>
       </component>
-      <component id="c2f19" class="javax.swing.JRadioButton" binding="mänclichRadioButton" default-binding="true">
+      <component id="c2f19" class="javax.swing.JRadioButton" binding="maleRadioButton">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -179,7 +179,7 @@
           <text value="mänclich"/>
         </properties>
       </component>
-      <component id="63d11" class="javax.swing.JRadioButton" binding="weiblichRadioButton" default-binding="true">
+      <component id="63d11" class="javax.swing.JRadioButton" binding="femaleRadioButton">
         <constraints>
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

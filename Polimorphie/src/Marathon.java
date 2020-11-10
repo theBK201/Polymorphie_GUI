@@ -1,17 +1,17 @@
-public class Marathon extends sportDaten{
-    private int std;
+public class Marathon extends sportData {
+    private int hours;
     private int min;
-    private int sek;
+    private int sec;
 
-    public Marathon(String n, int st, int mn, int se){
+    public Marathon(String n, int h, int mn, int se){
         super(n);
-         std = st;
+         hours = h;
          min = mn;
-         sek = se;
+         sec = se;
     }
 
     @Override
     public String display(){
-        return ("Sportler: "+sportlerName+", hat der Marathon mit Zeit: "+std+" "+min+" "+sek+" finishiert!\n");
+        return ("Sportler: "+athleteName+", hat der Marathon mit Zeit: "+hours+" "+min+" "+sec+" finishiert!\n");
     }
 }
