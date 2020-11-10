@@ -76,7 +76,7 @@ public class MainForm {
                     weight = Double.parseDouble(weightTf.getText());
                     height = Double.parseDouble(heightTf.getText());
 
-                    bmi = weight / ((height/100) *  (height/100));
+                    bmi = weight / ((height / 100) * (height / 100));
 
                     bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
@@ -87,6 +87,109 @@ public class MainForm {
 
     public void bmiMenTitel(int age, int bmiN, String bmiStatus) {
 
+        if (age >= 16) {
+            if (bmiN <= 18) {
+                bmiStatus = "Untergewicht";
+            }
+            if (bmiN >= 20 && bmiN <= 24) {
+                bmiStatus = "Normalgewicht";
+            }
+            if (bmiN >= 25 && bmiN <= 28) {
+                bmiStatus = "leichtes Übergewicht";
+            }
+            if (bmiN >= 29) {
+                bmiStatus = "Übergewicht";
+            }
+        }
+        if (age >= 17 && age <= 24) {
+            if (bmiN <= 18) {
+                bmiStatus = "Untergewicht";
+            }
+            if (bmiN == 19 && bmiN <= 24) {
+                bmiStatus = "Normalgewicht";
+            }
+            if (bmiN == 25 && bmiN <= 28) {
+                bmiStatus = "leichtes Übergewicht";
+            }
+            if (bmiN >= 29) {
+                bmiStatus = "Übergewicht";
+            }
+
+            if (age >= 25 && age <= 34) {
+                if (bmiN <= 19) {
+                    bmiStatus = "Untergewicht";
+                }
+                if (bmiN == 20 && bmiN <= 25) {
+                    bmiStatus = "Normalgewicht";
+                }
+                if (bmiN == 26 && bmiN <= 29) {
+                    bmiStatus = "leichtes Übergewicht";
+                }
+                if (bmiN >= 30) {
+                    bmiStatus = "Übergewicht";
+                }
+            }
+
+            if (age >= 35 && age <= 44) {
+                if (bmiN <= 21) {
+                    bmiStatus = "Untergewicht";
+                }
+                if (bmiN == 22 && bmiN <= 27) {
+                    bmiStatus = "Normalgewicht";
+                }
+                if (bmiN == 28 && bmiN <= 31) {
+                    bmiStatus = "leichtes Übergewicht";
+                }
+                if (bmiN >= 32) {
+                    bmiStatus = "Übergewicht";
+                }
+            }
+            if (age >= 45 && age <= 54) {
+                if (bmiN <= 22) {
+                    bmiStatus = "Untergewicht";
+                }
+                if (bmiN == 23 && bmiN <= 28) {
+                    bmiStatus = "Normalgewicht";
+                }
+                if (bmiN == 29 && bmiN <= 32) {
+                    bmiStatus = "leichtes Übergewicht";
+                }
+                if (bmiN >= 33) {
+                    bmiStatus = "Übergewicht";
+                }
+            }
+            if (age >= 55 && age <= 64) {
+                if (bmiN <= 23) {
+                    bmiStatus = "Untergewicht";
+                }
+                if (bmiN == 24 && bmiN <= 29) {
+                    bmiStatus = "Normalgewicht";
+                }
+                if (bmiN == 30 && bmiN <= 33) {
+                    bmiStatus = "leichtes Übergewicht";
+                }
+                if (bmiN >= 34) {
+                    bmiStatus = "Übergewicht";
+                }
+            }
+            if (age >= 65 && age <= 90) {
+                if (bmiN <= 24) {
+                    bmiStatus = "Untergewicht";
+                }
+                if (bmiN == 25 && bmiN <= 30) {
+                    bmiStatus = "Normalgewicht";
+                }
+                if (bmiN == 31 && bmiN <= 34) {
+                    bmiStatus = "leichtes Übergewicht";
+                }
+                if (bmiN >= 35) {
+                    bmiStatus = "Übergewicht";
+                }
+            }
+        }
+    }
+
+    public void bmiWomanTitel(int age, int bmiN, String bmiStatus) {
         if (age >= 16 && age <= 24) {
             if (bmiN <= 18) {
                 bmiStatus = "Untergewicht";
@@ -116,6 +219,7 @@ public class MainForm {
                 }
             }
         }
+
     }
 
     public static void main(String[] args) {
@@ -132,3 +236,4 @@ public class MainForm {
         });
     }
 }
+
