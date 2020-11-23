@@ -90,7 +90,6 @@ public class MainForm {
                     bmiStatus = bmiMenTitel(age,bmi,bmiStatus);
 
                     bmiTitle.setText(bmiStatus);
-
                 }
             }
         });
