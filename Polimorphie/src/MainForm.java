@@ -24,7 +24,7 @@ public class MainForm {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                LinkedList<sportData> sportDt = new LinkedList<>();
+                LinkedList<sportData> sportDt = new LinkedList<sportData>();
 
                 sportDt.add(new Marathon("Markus", 5, 40, 12));
                 sportDt.add(new SpearThrow("Daniel", 30.23));
