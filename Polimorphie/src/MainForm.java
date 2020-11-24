@@ -73,6 +73,10 @@ public class MainForm {
 
                     bmiStatus = bmimenTitle(age,bmi,bmiStatus);
                     bmiTitle.setText(bmiStatus);
+
+                    ageTf.setText("");
+                    weightTf.setText("");
+                    heightTf.setText("");
                 }
 
                 if(femaleRadioButton.isSelected()){
@@ -85,6 +89,10 @@ public class MainForm {
 
                     bmiStatus = bmiwomanTitle(age,bmi,bmiStatus);
                     bmiTitle.setText(bmiStatus);
+
+                    ageTf.setText("");
+                    weightTf.setText("");
+                    heightTf.setText("");
                 }
             }
         });
@@ -110,11 +118,11 @@ public class MainForm {
 
             if (bmiN <= 18) {
                 return bmiStatus = "Untergewicht";
-            }else if (bmiN <= 25 ) {
+            } else if (bmiN <= 25 ) {
                 return bmiStatus = "Normalgewicht";
-            }else if(bmiN <= 30) {
+            } else if(bmiN <= 30) {
                 return bmiStatus = "leichtes Übergewicht";
-            }else {
+            } else {
                 return bmiStatus = "Übergewicht";
             }
         }
@@ -122,11 +130,11 @@ public class MainForm {
         public String bmiwomanTitle(int tage, double tbmiN, String bmiStatus){
             if (tbmiN <= 18 && tage <= 24 ) {
                 return bmiStatus = "Untergewicht";
-            }else if (tbmiN <= 25 && tage <= 34) {
+            } else if (tbmiN <= 25 && tage <= 34) {
                 return bmiStatus = "Normalgewicht";
-            }else if(tbmiN <= 30 && tage <= 64) {
+            } else if(tbmiN <= 30 && tage <= 64) {
                 return bmiStatus = "leichtes Übergewicht";
-            }else {
+            } else {
                 return bmiStatus = "Übergewicht";
             }
         }
