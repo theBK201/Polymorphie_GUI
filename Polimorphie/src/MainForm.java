@@ -50,22 +50,6 @@ public class MainForm {
                 String bmiStatus = "";
                 DecimalFormat df2 = new DecimalFormat("#.##");
 
-                if (maleRadioButton.isSelected() && femaleRadioButton.isSelected()) {
-                    //Error that the user can select only one gender
-                    JOptionPane.showMessageDialog(null, "Sie können nur eine geschlecht auswellen !!!");
-                }
-
-                if (maleRadioButton.isSelected() == false && femaleRadioButton.isSelected() == false) {
-                    //Error that the user hasn't selected any gender
-                    JOptionPane.showMessageDialog(null, "Sie haben keine geschlecht ausgewelt!");
-                }
-
-
-                if (ageTf.getText().isEmpty() && weightTf.getText().isEmpty() && heightTf.getText().isEmpty()) {
-                    //Error that the user hasn't given any data
-                    JOptionPane.showMessageDialog(null, "Sie haben keine Daten gegeben!");
-                }
-
                 if (ageTf.getText().isEmpty()) {
                     //Error that the user hasn't given his age
                     JOptionPane.showMessageDialog(null, "Sie haben keine Alter gegeben!");
@@ -87,21 +71,60 @@ public class MainForm {
                     bmi = weight / ((height / 100) * (height / 100));
                     bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
-                    bmiStatus = bmiTitel(age,bmi,bmiStatus);
-
+                    bmiStatus = bmimenTitle(age,bmi,bmiStatus);
                     bmiTitle.setText(bmiStatus);
+                }
+
+                if(femaleRadioButton.isSelected()){
+                    age = Integer.parseInt(ageTf.getText());
+                    weight = Double.parseDouble(weightTf.getText());
+                    height = Double.parseDouble(heightTf.getText());
+
+                    bmi = weight / ((height / 100) * (height / 100));
+                    bmiNumber.setText(String.valueOf(df2.format(bmi)));
+
+                    bmiStatus = bmiwomanTitle(age,bmi,bmiStatus);
+                    bmiTitle.setText(bmiStatus);
+                }
+            }
+        });
+        femaleRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(femaleRadioButton.isSelected()){
+                    maleRadioButton.setSelected(false);
+                }
+            }
+        });
+        maleRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(maleRadioButton.isSelected()){
+                    femaleRadioButton.setSelected(false);
                 }
             }
         });
     }
 
-    public String bmiTitel(int age, double bmiN, String bmiStatus) {
+    public String bmimenTitle(int age, double bmiN, String bmiStatus) {
 
             if (bmiN <= 18) {
                 return bmiStatus = "Untergewicht";
             }else if (bmiN <= 25 ) {
                 return bmiStatus = "Normalgewicht";
             }else if(bmiN <= 30) {
+                return bmiStatus = "leichtes Übergewicht";
+            }else {
+                return bmiStatus = "Übergewicht";
+            }
+        }
+
+        public String bmiwomanTitle(int tage, double tbmiN, String bmiStatus){
+            if (tbmiN <= 18 && tage <= 24 ) {
+                return bmiStatus = "Untergewicht";
+            }else if (tbmiN <= 25 && tage <= 34) {
+                return bmiStatus = "Normalgewicht";
+            }else if(tbmiN <= 30 && tage <= 64) {
                 return bmiStatus = "leichtes Übergewicht";
             }else {
                 return bmiStatus = "Übergewicht";
