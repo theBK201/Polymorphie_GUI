@@ -47,7 +47,6 @@ public class MainForm {
                 double weight;
                 int age;
                 double bmi;
-                String bmiStatus = "";
                 DecimalFormat df2 = new DecimalFormat("#.##");
 
                 if (ageTf.getText().isEmpty()) {
@@ -71,8 +70,7 @@ public class MainForm {
                     bmi = weight / ((height / 100) * (height / 100));
                     bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
-                    bmiStatus = bmimenTitle(age, bmi, bmiStatus);
-                    bmiTitle.setText(bmiStatus);
+                    bmiTitle.setText(bmimenTitle(age,bmi));
 
                     ageTf.setText("");
                     weightTf.setText("");
@@ -87,8 +85,7 @@ public class MainForm {
                     bmi = weight / ((height / 100) * (height / 100));
                     bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
-                    bmiStatus = bmiwomanTitle(age, bmi, bmiStatus);
-                    bmiTitle.setText(bmiStatus);
+                    bmiTitle.setText(bmiwomanTitle(age,bmi));
 
                     ageTf.setText("");
                     weightTf.setText("");
@@ -114,28 +111,28 @@ public class MainForm {
         });
     }
 
-    public String bmimenTitle(int age, double bmiN, String bmiStatus) {
+    public String bmimenTitle(int age, double bmiN) {
 
         if (bmiN <= 18) {
-            return bmiStatus = "Untergewicht";
+            return "Untergewicht";
         } else if (bmiN <= 25) {
-            return bmiStatus = "Normalgewicht";
+            return "Normalgewicht";
         } else if (bmiN <= 30) {
-            return bmiStatus = "leichtes Übergewicht";
+            return "leichtes Übergewicht";
         } else {
-            return bmiStatus = "Übergewicht";
+            return "Übergewicht";
         }
     }
 
-    public String bmiwomanTitle(int tage, double tbmiN, String bmiStatus) {
+    public String bmiwomanTitle(int tage, double tbmiN) {
         if (tbmiN <= 18 && tage <= 24) {
-            return bmiStatus = "Untergewicht";
+            return "Untergewicht";
         } else if (tbmiN <= 25 && tage <= 34) {
-            return bmiStatus = "Normalgewicht";
+            return "Normalgewicht";
         } else if (tbmiN <= 30 && tage <= 64) {
-            return bmiStatus = "leichtes Übergewicht";
+            return "leichtes Übergewicht";
         } else {
-            return bmiStatus = "Übergewicht";
+            return "Übergewicht";
         }
     }
 
