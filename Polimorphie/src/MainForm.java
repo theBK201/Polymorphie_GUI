@@ -71,7 +71,7 @@ public class MainForm {
                     bmi = weight / ((height / 100) * (height / 100));
                     bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
-                    bmiStatus = bmimenTitle(age,bmi,bmiStatus);
+                    bmiStatus = bmimenTitle(age, bmi, bmiStatus);
                     bmiTitle.setText(bmiStatus);
 
                     ageTf.setText("");
@@ -79,7 +79,7 @@ public class MainForm {
                     heightTf.setText("");
                 }
 
-                if(femaleRadioButton.isSelected()){
+                if (femaleRadioButton.isSelected()) {
                     age = Integer.parseInt(ageTf.getText());
                     weight = Double.parseDouble(weightTf.getText());
                     height = Double.parseDouble(heightTf.getText());
@@ -87,7 +87,7 @@ public class MainForm {
                     bmi = weight / ((height / 100) * (height / 100));
                     bmiNumber.setText(String.valueOf(df2.format(bmi)));
 
-                    bmiStatus = bmiwomanTitle(age,bmi,bmiStatus);
+                    bmiStatus = bmiwomanTitle(age, bmi, bmiStatus);
                     bmiTitle.setText(bmiStatus);
 
                     ageTf.setText("");
@@ -99,7 +99,7 @@ public class MainForm {
         femaleRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(femaleRadioButton.isSelected()){
+                if (femaleRadioButton.isSelected()) {
                     maleRadioButton.setSelected(false);
                 }
             }
@@ -107,7 +107,7 @@ public class MainForm {
         maleRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(maleRadioButton.isSelected()){
+                if (maleRadioButton.isSelected()) {
                     femaleRadioButton.setSelected(false);
                 }
             }
@@ -116,28 +116,28 @@ public class MainForm {
 
     public String bmimenTitle(int age, double bmiN, String bmiStatus) {
 
-            if (bmiN <= 18) {
-                return bmiStatus = "Untergewicht";
-            } else if (bmiN <= 25 ) {
-                return bmiStatus = "Normalgewicht";
-            } else if(bmiN <= 30) {
-                return bmiStatus = "leichtes Übergewicht";
-            } else {
-                return bmiStatus = "Übergewicht";
-            }
+        if (bmiN <= 18) {
+            return bmiStatus = "Untergewicht";
+        } else if (bmiN <= 25) {
+            return bmiStatus = "Normalgewicht";
+        } else if (bmiN <= 30) {
+            return bmiStatus = "leichtes Übergewicht";
+        } else {
+            return bmiStatus = "Übergewicht";
         }
+    }
 
-        public String bmiwomanTitle(int tage, double tbmiN, String bmiStatus){
-            if (tbmiN <= 18 && tage <= 24 ) {
-                return bmiStatus = "Untergewicht";
-            } else if (tbmiN <= 25 && tage <= 34) {
-                return bmiStatus = "Normalgewicht";
-            } else if(tbmiN <= 30 && tage <= 64) {
-                return bmiStatus = "leichtes Übergewicht";
-            } else {
-                return bmiStatus = "Übergewicht";
-            }
+    public String bmiwomanTitle(int tage, double tbmiN, String bmiStatus) {
+        if (tbmiN <= 18 && tage <= 24) {
+            return bmiStatus = "Untergewicht";
+        } else if (tbmiN <= 25 && tage <= 34) {
+            return bmiStatus = "Normalgewicht";
+        } else if (tbmiN <= 30 && tage <= 64) {
+            return bmiStatus = "leichtes Übergewicht";
+        } else {
+            return bmiStatus = "Übergewicht";
         }
+    }
 
 
     public static void main(String[] args) {
